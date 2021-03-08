@@ -1,10 +1,12 @@
+package org.example;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 
-public class ProjectTests {
+public class ProjectTest {
 
     @Test
     public void testAssertion() {
@@ -23,6 +25,7 @@ public class ProjectTests {
 
         verify(mockDependency).mockFunction();
     }
+
     @Test
     public void testStub() {
         Dependency mockDependency = mock(Dependency.class);

@@ -1,3 +1,5 @@
+package org.example;
+
 public class Dependency {
     public int mockFunction(){
         return -1;

@@ -1,6 +1,8 @@
+package org.example;
+
 public class Project {
 
-    private Dependency dependency;
+    private final Dependency dependency;
 
     public Project(Dependency dependency){
         this.dependency = dependency;
