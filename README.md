@@ -15,6 +15,11 @@ Si un Strike est fait à la dernière frame le joueur à 2 lancer bonus
 
 ##Exemples
 
+| 1    | 2     | 3      | 4      | 5      | 6      | 7      | 8      | 9      | 10    | Total
+|:----:|:----: |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----: |:----:
+| 10   | 10    | 10     | 43, 48 | 50, 56 | 50, 56 | 50, 56 | 50, 56 | 50, 56 | 61, 65 | 1  
+
+
 Parties sans SPARE et sans STRIKE  
 
 | 1   | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | Total

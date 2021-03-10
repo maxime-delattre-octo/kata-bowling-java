@@ -1,15 +1,27 @@
 package org.example;
 
 public class Project {
+    
+    private int currentScore;
+    private int currentFrame;
 
-    private final Dependency dependency;
-
-    public Project(Dependency dependency){
-        this.dependency = dependency;
+    public Project(){
     }
 
-    public int testFunction(){
-        dependency.mockFunction();
-        return dependency.stubFunction();
+    public int score(int frameScore) {
+        int score = s1 + s2;
+        return score;
+    }
+
+    public void setCurrentScore(int score) {
+        currentScore = score;
+    }
+
+    public void setCurrentFrame(int frame) {
+        currentFrame = frame;
+    }
+
+    public int getScore() {
+        return currentScore;
     }
 }
