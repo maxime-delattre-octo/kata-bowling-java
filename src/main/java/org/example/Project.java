@@ -1,27 +1,20 @@
 package org.example;
 
+import java.util.*;
+
 public class Project {
-    
-    private int currentScore;
-    private int currentFrame;
 
     public Project(){
     }
 
-    public int score(int frameScore) {
-        int score = s1 + s2;
-        return score;
-    }
+    public int score(List<List<Integer>> scores) {
+        int finalScore = 0;
+        for(List<Integer> scoreFrame : scores) {
+            for (Integer scoreLance : scoreFrame) {
+                finalScore += scoreLance;
+            }
+        }
 
-    public void setCurrentScore(int score) {
-        currentScore = score;
-    }
-
-    public void setCurrentFrame(int frame) {
-        currentFrame = frame;
-    }
-
-    public int getScore() {
-        return currentScore;
+        return finalScore;
     }
 }
