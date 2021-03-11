@@ -4,12 +4,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
+
 
 public class ProjectTest {
 
     @Test
     public void testNormal() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 20;
         int [][] scores = {
@@ -24,12 +28,13 @@ public class ProjectTest {
             {1,1},
             {1,1},
         };
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
     }
 
     @Test
     public void testSpare() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 29;
         int [][] scores = {
@@ -44,12 +49,13 @@ public class ProjectTest {
             {1,1},
             {1,1},
         };
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
     }
 
     @Test
     public void testSpareTwice() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 42;
         int [][] scores = {
@@ -64,12 +70,13 @@ public class ProjectTest {
             {1,1},
             {1,1},
         };
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
     }
 
     @Test
     public void testStrike() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 30;
         int [][] scores = {
@@ -84,12 +91,13 @@ public class ProjectTest {
             {1,1},
             {1,1},
         };
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
     }
 
     @Test
     public void testStrikeTwice() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 49;
         int [][] scores = {
@@ -104,12 +112,13 @@ public class ProjectTest {
             {1,1},
             {1,1},
         };
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
     }
 
     @Test
     public void testMixedSpareStrike() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 128;
         int [][] scores = {
@@ -125,12 +134,13 @@ public class ProjectTest {
             {1,1},
         };
 
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
     }
 
     @Test
     public void testRandomGameWithLucky10() {
-        Bowling project = new Bowling();
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        Bowling project = new Bowling(rollProviderStub);
 
         int finalScore = 156;
         int [][] scores = {
@@ -146,6 +156,32 @@ public class ProjectTest {
             {10,10,10},
         };
 
-        assertEquals(finalScore, project.score(scores));
+        assertEquals(finalScore, project.scoreWithGivenList(scores));
+    }
+
+    @Test
+    public void testWithRollProviderStubPerfectScore() {
+        RollProviderStub rollProviderStub = new RollProviderStub(10);
+        ConsoleDisplayer mockDisplay = Mockito.mock(ConsoleDisplayer.class);
+        Bowling project = new Bowling(rollProviderStub, mockDisplay);
+
+        int finalScore = 300;
+
+        assertEquals(finalScore, project.score());
+    }
+
+    @Test
+    public void shouldCallDependency() {
+        //given
+        RollProviderStub rollProviderStub = new RollProviderStub(5);
+        ConsoleDisplayer mockDisplay = Mockito.mock(ConsoleDisplayer.class);
+        
+        Bowling project = new Bowling(rollProviderStub, mockDisplay);
+
+        // when
+        project.score();
+        
+        // then
+        BDDMockito.then(mockDisplay).should().displayScoreToConsole(150);
     }
 }
