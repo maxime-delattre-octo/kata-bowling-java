@@ -2,9 +2,9 @@ package org.example;
 
 import java.util.Random;
 
-public class FallenPinsProvider {
+public class RollProvider {
 
-    public Integer getFallenPins() {
+    public Integer getRoll() {
         return new Random().nextInt(10) + 1;
     }
 }

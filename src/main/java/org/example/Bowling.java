@@ -4,9 +4,6 @@ import java.util.stream.IntStream;
 
 public class Bowling {
 
-    public Bowling(){
-    }
-
     public int score(int [][] scores) {
         int finalScore = 0;
         int nbThrowToAdd = 0; // normal
