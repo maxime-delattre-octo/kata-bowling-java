@@ -9,9 +9,11 @@ import java.util.stream.Collectors;
 public class Partie {
 
     private FallenPinsProvider provider;
+    private ScoreConsoleDisplayer scoreConsoleDisplayer;
 
-    public Partie(FallenPinsProvider provider) {
+    public Partie(FallenPinsProvider provider,ScoreConsoleDisplayer scoreConsoleDisplayer) {
         this.provider = provider;
+        this.scoreConsoleDisplayer = scoreConsoleDisplayer;
     }
 
     public Integer calculScore() {
@@ -30,6 +32,7 @@ public class Partie {
                 }
             }
         }
+        scoreConsoleDisplayer.displayScoreToConsole(score);
         return score;
     }
 
