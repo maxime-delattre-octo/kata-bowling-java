@@ -50,52 +50,21 @@ public class PartieTest {
        FallenPinsProvider provider = new FallenPinsProviderStubTwoConsecutiveStrikeTest();
        Partie partie = new Partie(provider);
        assertEquals(33, partie.calculScore());
-        /*assertEquals(93,partie.calculScore(
-                Map.of(
-                        1, List.of(10),
-                        2, List.of(10),
-                        3, List.of(10),
-                        4, List.of(10),
-                        5, List.of(1,0),
-                        6, List.of(0,0),
-                        7, List.of(0,0),
-                        8, List.of(0,0),
-                        9, List.of(0,0),
-                        10, List.of(0,0)
-                )));*/
     }
 
-    /*@Test
+    @Test
     public void scoreWithSpareOnLastFrame(){
-        assertEquals(42,partie.calculScore(
-                Map.of(
-                        1, List.of(5,5),
-                        2, List.of(5,5),
-                        3, List.of(1,0),
-                        4, List.of(0,0),
-                        5, List.of(0,0),
-                        6, List.of(0,0),
-                        7, List.of(0,0),
-                        8, List.of(0,0),
-                        9, List.of(0,0),
-                        10, List.of(5,5,5)
-                )));
+
+       FallenPinsProvider provider = new FallenPinsProviderStubSpareOnLastFrameTest();
+       Partie partie = new Partie(provider);
+       assertEquals(42, partie.calculScore());
+
     }
 
     @Test
     public void scoreWithPerfectGame(){
-        assertEquals(300,partie.calculScore(
-                Map.of(
-                        1, List.of(10),
-                        2, List.of(10),
-                        3, List.of(10),
-                        4, List.of(10),
-                        5, List.of(10),
-                        6, List.of(10),
-                        7, List.of(10),
-                        8, List.of(10),
-                        9, List.of(10),
-                        10, List.of(10,10,10)
-                )));
-    }*/
+       FallenPinsProvider provider = new FallenPinsProviderStubPerfectGameTest();
+       Partie partie = new Partie(provider);
+       assertEquals(300, partie.calculScore());
+    }
 }

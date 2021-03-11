@@ -37,11 +37,21 @@ public class Partie {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 1; i <= 10; i++) {
             Integer first = provider.getFallenPins();
-            if (first == 10) map.put(i, List.of(10));
+            if (first == 10){
+                if(i<10){
+                    map.put(i, List.of(10));
+                }else{
+                    Integer second = provider.getFallenPins();
+                    if (second == 10){
+                        map.put(i, List.of(first, second, provider.getFallenPins()));
+                    }else {
+                        map.put(i, List.of(first, second));
+                    }
+                }
+            }
             else {
                 Integer second = provider.getFallenPins();
-                if (i < 10) map.put(i, List.of(first, second));
-                else if (second == 10 || (first + second) == 10) {
+                if (first + second == 10 && i==10) {
                     map.put(i, List.of(first, second, provider.getFallenPins()));
                 } else {
                     map.put(i, List.of(first, second));
