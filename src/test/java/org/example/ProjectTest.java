@@ -9,7 +9,7 @@ public class ProjectTest {
 
     @Test
     public void testNormal() {
-        Project project = new Project();
+        Bowling project = new Bowling();
 
         int finalScore = 20;
         int [][] scores = {
@@ -29,7 +29,7 @@ public class ProjectTest {
 
     @Test
     public void testSpare() {
-        Project project = new Project();
+        Bowling project = new Bowling();
 
         int finalScore = 29;
         int [][] scores = {
@@ -49,7 +49,7 @@ public class ProjectTest {
 
     @Test
     public void testSpareTwice() {
-        Project project = new Project();
+        Bowling project = new Bowling();
 
         int finalScore = 42;
         int [][] scores = {
@@ -69,7 +69,7 @@ public class ProjectTest {
 
     @Test
     public void testStrike() {
-        Project project = new Project();
+        Bowling project = new Bowling();
 
         int finalScore = 30;
         int [][] scores = {
@@ -89,7 +89,7 @@ public class ProjectTest {
 
     @Test
     public void testStrikeTwice() {
-        Project project = new Project();
+        Bowling project = new Bowling();
 
         int finalScore = 49;
         int [][] scores = {
@@ -108,12 +108,10 @@ public class ProjectTest {
     }
 
     @Test
-    public void testRandomGame() {
-        Project project = new Project();
+    public void testMixedSpareStrike() {
+        Bowling project = new Bowling();
 
         int finalScore = 128;
-        //| 10 | 5,4 | 10 | 9, 1 | 10 | 5, 5 | 0, 0 | 10 | 4, 5 | 1, 1 
-
         int [][] scores = {
             {10},
             {5,4},
@@ -132,11 +130,9 @@ public class ProjectTest {
 
     @Test
     public void testRandomGameWithLucky10() {
-        Project project = new Project();
+        Bowling project = new Bowling();
 
-        
         int finalScore = 156;
-        //| 10 | 5,4 | 10 | 9, 1 | 10 | 5, 5 | 0, 0 | 10 | 4, 5 | 10,10,10
         int [][] scores = {
             {10},
             {5,4},
