@@ -32,6 +32,7 @@ public class Puissance4 {
     }
 
     public boolean ajouterJeton(Integer colonne, String joueur){
+        System.out.println(joueur + " joue en " + colonne);
         boolean coup_autorise = true;
         if(joueur.equals(dernierJetonJoue)) {
             return false;
@@ -49,6 +50,10 @@ public class Puissance4 {
             ligne--;
         }
         grille.get(ligne).set(colonne-1,joueur);
+
+        if(coup_autorise)
+            System.out.println(this.toString());
+
         return coup_autorise;
     }
 
@@ -56,9 +61,10 @@ public class Puissance4 {
         int colonne = 0;
         int cpt = 0;
         String old_value = ".";
+        String value;
         //Test la victoire verticale
         for(int ligne=5; ligne>=0; ligne--){
-            String value = grille.get(ligne).get(colonne);
+            value = grille.get(ligne).get(colonne);
             if(value.equals(old_value) && !old_value.equals(".")){
                 cpt++;
             }
@@ -67,8 +73,10 @@ public class Puissance4 {
                 old_value=value;
             }
 
-            if(cpt==4)
+            if(cpt==4) {
+                System.out.println(value + " a gagné !");
                 return true;
+            }
         }
         cpt = 0;
         old_value = ".";
@@ -76,7 +84,7 @@ public class Puissance4 {
         for(int ligne=5; ligne>=0; ligne--){
             List<String> line = grille.get(ligne);
             for(int col=0; col<7; col++){
-                String value =line.get(col);
+                value =line.get(col);
                 if(value.equals(old_value) && !old_value.equals(".")){
                     cpt++;
                 }
@@ -85,8 +93,10 @@ public class Puissance4 {
                     old_value=value;
                 }
 
-                if(cpt==4)
+                if(cpt==4) {
+                    System.out.println(value + " a gagné !");
                     return true;
+                }
             }
         }
 
@@ -94,7 +104,7 @@ public class Puissance4 {
         for(int ligne=5; ligne>=3; ligne--){
             List<String> line = grille.get(ligne);
             for(int col=0; col<=3; col++){
-                String value =line.get(col);
+                value =line.get(col);
                 if(!value.equals(".")){
                     boolean ok = true;
                     for(int i=1; i<4; i++){
@@ -103,6 +113,7 @@ public class Puissance4 {
                         }
                     }
                     if(ok) {
+                        System.out.println(value + " a gagné !");
                         return true;
                     }
                 }
@@ -113,7 +124,7 @@ public class Puissance4 {
         for(int ligne=5; ligne>=3; ligne--){
             List<String> line = grille.get(ligne);
             for(int col=6; col>=3; col--){
-                String value =line.get(col);
+                value =line.get(col);
                 if(!value.equals(".")){
                     boolean ok = true;
                     for(int i=1; i<4; i++){
@@ -122,6 +133,7 @@ public class Puissance4 {
                         }
                     }
                     if(ok) {
+                        System.out.println(value + " a gagné !");
                         return true;
                     }
                 }
